@@ -89,7 +89,8 @@ require('lualine').setup {
 | nord_disable_background         | `false`     | Disable the setting of background color so that NeoVim can use your terminal background
 | nord_cursorline_transparent     | `false`     | Set the cursorline transparent/visible
 | nord_enable_sidebar_background  | `false`     | Re-enables the background of the sidebar if you disabled the background of everything
-| nord_italic                     | `true`      | enables/disables italics
+| nord_italic_comments            | `true`      | enables/disables italics for comments
+| nord_italic                     | `true`      | enables/disables italics for other elements
 | nord_uniform_diff_background    | `false`     | enables/disables colorful backgrounds when used in *diff* mode
 
 ```lua
@@ -97,6 +98,7 @@ require('lualine').setup {
 vim.g.nord_contrast = true
 vim.g.nord_borders = false
 vim.g.nord_disable_background = false
+vim.g.nord_italic_comments = false
 vim.g.nord_italic = false
 vim.g.nord_uniform_diff_background = true
 
@@ -109,6 +111,7 @@ require('nord').set()
 let g:nord_contrast = v:true
 let g:nord_borders = v:false
 let g:nord_disable_background = v:false
+let g:nord_italic_comments = v:false
 let g:nord_italic = v:false
 let g:nord_uniform_diff_background = v:true
 

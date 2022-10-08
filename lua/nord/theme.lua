@@ -50,8 +50,14 @@ theme.loadSyntax = function()
 	}
 
 	-- Italic comments
-	if vim.g.nord_italic == false then
+  if vim.g.nord_italic_comments == false then
 		syntax.Comment = { fg = nord.nord3_gui_bright } -- normal comments
+  else
+		syntax.Comment = { fg = nord.nord3_gui_bright, bg = nord.none, style = "italic" } -- italic comments
+  end
+
+  -- Italic other elements
+	if vim.g.nord_italic == false then
 		syntax.Conditional = { fg = nord.nord9_gui } -- normal if, then, else, endif, switch, etc.
 		syntax.Function = { fg = nord.nord8_gui } -- normal function names
 		syntax.Identifier = { fg = nord.nord9_gui } -- any variable name
@@ -59,7 +65,6 @@ theme.loadSyntax = function()
 		syntax.Repeat = { fg = nord.nord9_gui } -- normal any other keyword
 		syntax.String = { fg = nord.nord14_gui } -- any string
 	else
-		syntax.Comment = { fg = nord.nord3_gui_bright, bg = nord.none, style = "italic" } -- italic comments
 		syntax.Conditional = { fg = nord.nord9_gui, bg = nord.none, style = "italic" } -- italic if, then, else, endif, switch, etc.
 		syntax.Function = { fg = nord.nord8_gui, bg = nord.none, style = "italic" } -- italic funtion names
 		syntax.Identifier = { fg = nord.nord9_gui, bg = nord.none, style = "italic" } -- any variable name
@@ -280,9 +285,17 @@ theme.loadTreeSitter = function()
 		TSAnnotation = { fg = nord.nord11_gui }, -- For C++/Dart attributes, annotations that can be attached to the code to denote some kind of meta information.
 	}
 
-	if vim.g.nord_italic == false then
+  -- Italic comments
+	if vim.g.nord_italic_comments == false then
 		-- Comments
 		treesitter.TSComment = { fg = nord.nord3_gui_bright }
+  else
+		-- Comments
+		treesitter.TSComment = { fg = nord.nord3_gui_bright, style = "italic" }
+  end
+
+  -- Italic other elements
+	if vim.g.nord_italic == false then
 		-- Conditionals
 		treesitter.TSConditional = { fg = nord.nord9_gui } -- For keywords related to conditionnals.
 		-- Function names
@@ -305,8 +318,6 @@ theme.loadTreeSitter = function()
 		treesitter.TSStringEscape = { fg = nord.nord15_gui } -- For escape characters within a string.
 		treesitter.TSCharacter = { fg = nord.nord14_gui } -- For characters.
 	else
-		-- Comments
-		treesitter.TSComment = { fg = nord.nord3_gui_bright, style = "italic" }
 		-- Conditionals
 		treesitter.TSConditional = { fg = nord.nord9_gui, style = "italic" } -- For keywords related to conditionnals.
 		-- Function names
