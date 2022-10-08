@@ -113,10 +113,10 @@ theme.loadEditor = function()
 		qfLineNr = { fg = nord.nord4_gui, bg = nord.none, style = "reverse" },
 		Search = { fg = nord.nord10_gui, bg = nord.nord6_gui, style = "reverse" },
 		SpecialKey = { fg = nord.nord9_gui },
-		SpellBad = { fg = nord.nord11_gui, bg = nord.none, style = "italic,undercurl" },
-		SpellCap = { fg = nord.nord7_gui, bg = nord.none, style = "italic,undercurl" },
-		SpellLocal = { fg = nord.nord8_gui, bg = nord.none, style = "italic,undercurl" },
-		SpellRare = { fg = nord.nord9_gui, bg = nord.none, style = "italic,undercurl" },
+    SpellBad = { bg = nord.none, style = "undercurl" },
+    SpellCap = { bg = nord.none, style = "undercurl" },
+    SpellLocal = { bg = nord.none, style = "undercurl" },
+    SpellRare = { bg = nord.none, style = "undercurl" },
 		StatusLine = { fg = nord.nord4_gui, bg = nord.nord2_gui },
 		StatusLineNC = { fg = nord.nord4_gui, bg = nord.nord1_gui },
 		StatusLineTerm = { fg = nord.nord4_gui, bg = nord.nord2_gui },
@@ -199,7 +199,23 @@ theme.loadEditor = function()
 
 	-- Options:
 
-	--Set transparent background
+  -- Italic for spell errors
+  if vim.g.nord_italic ~= false then
+		editor.SpellBad.style = editor.SpellBad.style .. ",italic"
+		editor.SpellCap.style = editor.SpellCap.style .. ",italic"
+		editor.SpellLocal.style = editor.SpellLocal.style .. ",italic"
+		editor.SpellRare.style = editor.SpellRare.style .. ",italic"
+  end
+
+  -- Highlight spell errors
+  if vim.g.nord_spell_highlight ~= false then
+		editor.SpellBad.fg = nord.nord11_gui
+		editor.SpellCap.fg = nord.nord7_gui
+		editor.SpellLocal.fg = nord.nord8_gui
+		editor.SpellRare.fg = nord.nord9_gui
+  end
+
+	-- Set transparent background
 	if vim.g.nord_disable_background then
 		editor.Normal = { fg = nord.nord4_gui, bg = nord.none } -- normal text and background color
 		editor.SignColumn = { fg = nord.nord4_gui, bg = nord.none }

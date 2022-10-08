@@ -48,12 +48,12 @@ added to NeoVim like built-in LSP and [TreeSitter](https://github.com/nvim-trees
 Install via your favourite package manager:
 ```vim
 " If you are using Vim-Plug
-Plug 'shaunsingh/nord.nvim'
+Plug 'miyakogi/nord.nvim'
 ```
 
 ```lua
 -- If you are using Packer
-use 'shaunsingh/nord.nvim'
+use 'miyakogi/nord.nvim'
 ```
 
 ## 🌓 Usage
@@ -92,6 +92,7 @@ require('lualine').setup {
 | nord_enable_sidebar_background  | `false`     | Re-enables the background of the sidebar if you disabled the background of everything
 | nord_italic_comments            | `true`      | enables/disables italics for comments
 | nord_italic                     | `true`      | enables/disables italics for other elements
+| nord_spell_highlight            | `true`      | enables/disables highlights for spell errors
 | nord_uniform_diff_background    | `false`     | enables/disables colorful backgrounds when used in *diff* mode
 
 ```lua
@@ -101,6 +102,7 @@ vim.g.nord_borders = false
 vim.g.nord_disable_background = false
 vim.g.nord_italic_comments = false
 vim.g.nord_italic = false
+vim.g.nord_spell_highlight = false
 vim.g.nord_uniform_diff_background = true
 
 -- Load the colorscheme
@@ -114,6 +116,7 @@ let g:nord_borders = v:false
 let g:nord_disable_background = v:false
 let g:nord_italic_comments = v:false
 let g:nord_italic = v:false
+let g:nord_spell_highlight = v:false
 let g:nord_uniform_diff_background = v:true
 
 " Load the colorscheme
