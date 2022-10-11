@@ -53,6 +53,7 @@ theme.loadSyntax = function()
 		markdownH3Delimiter = { link = "markdownH1Delimiter" },
 		markdownH4Delimiter = { link = "markdownH1Delimiter" },
 		markdownH5Delimiter = { link = "markdownH1Delimiter" },
+    markdownCode = { fg = nord.nord13_gui }
 	}
 
 	-- Italic comments
